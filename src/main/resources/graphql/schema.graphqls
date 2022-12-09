@@ -1,0 +1,35 @@
+type Query {
+    findAllFeedbacks: [Feedback]!
+    countFeedbacks: Float!
+#    feedbackById(feedbackId: ID!): Feedback
+#    feedbacksByCourierId(courierId: ID!): [Feedback]
+#    feedbacksByCustomerIdAndRestaurantId(customerId: ID!, restaurantId: ID!): [Feedback]
+}
+
+type Mutation {
+#    addFeedback(feedback: FeedbackInput): Feedback
+    createFeedback(feedback: FeedbackInput): Feedback!
+}
+
+input FeedbackInput {
+    customerId: ID!
+    restaurantId: ID!
+    courierId: ID!
+    title: String!
+    foodRating: Int
+    courierRating: Int
+    overallRating: Int
+    description: String!
+}
+
+type Feedback {
+    feedbackId: ID!
+    customerId: ID!
+    restaurantId: ID!
+    courierId: ID!
+    title: String!
+    foodRating: Int
+    courierRating: Int
+    overallRating: Int
+    description: String!
+}
